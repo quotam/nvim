@@ -6,7 +6,7 @@ local M = {}
 
 M.ui = {
   theme = "dark_horizon",
-  theme_toggle = { "tokyonight", "dark_horizon" },
+  theme_toggle = { "dark_horizon", "dark_horizon" },
   transparency = false,
   hl_override = {
     Comment = { italic = true },

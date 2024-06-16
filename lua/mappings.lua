@@ -8,6 +8,8 @@ local nomap = vim.keymap.del
 -- ["<leader>s"] = { "<cmd>:set syntax=on<CR>", "Set syntax for ru. " },
 -- ["<leader>rr"] = { "<cmd>:call VrcQuery()<CR>", "VRC" },
 
+nomap('n', '<leader>x')
+
 map({ "n" }, "ca", function()
   require("actions-preview").code_actions()
 end, { desc = "code actions" })
@@ -32,12 +34,17 @@ map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end, { desc = "toggle transparent" })
 
-map("n", "<S-K>", vim.lsp.buf.signature_help, { desc = "Show signature help" })
+map("n", "<S-K>", vim.lsp.buf.hover, { desc = "Show signature help" })
 
-map("n", "<C-q>", "<cmd>:bufdo bd<CR>", { desc = "Close all buffers" })
-map("n", "<leader>ii", "<cmd>: OrganizeImports<CR>", { desc = "OrganizeImports" })
+map("n", "<C-q>", function()
+  vim.t.bufs = vim.tbl_filter(function(bufnr)
+    return vim.api.nvim_buf_get_option(bufnr, "modified")
+  end, vim.t.bufs)
+end, { desc = "Close all unsaved buffers" })
+
+map("n", "<leader>ii", "<cmd>:OrganizeImports<CR>", { desc = "Organize Imports" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("n", "<leader>ll", "<cmd>: TroubleToggle<CR>", { desc = "open trouble" })
+map("n", "<leader>ll", "<cmd>:TroubleToggle<CR>", { desc = "open trouble" })
 map("n", "<leader>ft", "<cmd>:TodoTelescope<CR>", { desc = "Find TODO" })
 map({ "n", "i" }, "<C-n>", "<cmd>:tabnew<CR>", { desc = "new tab" })
 map({ "n", "i" }, "<C-1>", "<cmd>: tabn 1 <CR>", { desc = "tab 1" })

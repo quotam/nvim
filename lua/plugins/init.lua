@@ -1,5 +1,19 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+    build = ":TSUpdate",
+    opts = function()
+      return require "nvchad.configs.treesitter"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+      dofile(vim.g.base46_cache .. "treesitter")
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+  {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
@@ -20,6 +34,7 @@ return {
       require "configs.lspconfig"
     end,
   },
+  -- BUG: changed api wrong work
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -32,10 +47,10 @@ return {
       require("todo-comments").setup()
     end,
   }, -- To make a plugin not be loaded
-  {
-    "Exafunction/codeium.vim",
-    lazy = false,
-  },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   lazy = false,
+  -- },
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",

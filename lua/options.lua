@@ -9,8 +9,8 @@ require "nvchad.options"
 vim.opt.spelllang = { "ru", "en_us" }
 vim.opt.spell = true
 -- relativenumber
+--
 vim.opt.relativenumber = true
-
 --
 -- vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "tabnew" }, {
 --   callback = function()
