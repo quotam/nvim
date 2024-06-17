@@ -3,12 +3,9 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
 
 -- ["<leader>s"] = { "<cmd>:set syntax=on<CR>", "Set syntax for ru. " },
 -- ["<leader>rr"] = { "<cmd>:call VrcQuery()<CR>", "VRC" },
-
-nomap('n', '<leader>x')
 
 map({ "n" }, "ca", function()
   require("actions-preview").code_actions()

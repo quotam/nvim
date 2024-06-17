@@ -1,7 +1,7 @@
 local gheight = vim.api.nvim_list_uis()[1].height
-local gwidth = vim.api.nvim_list_uis()[1].width
-local width = 50
-local height = 30
+-- local gwidth = vim.api.nvim_list_uis()[1].width
+local width = 35
+local height = gheight - 5
 
 local options = {
   filters = {
@@ -25,8 +25,8 @@ local options = {
         relative = "editor",
         width = width,
         height = height,
-        row = (gheight - height) * 0.5,
-        col = (gwidth - width) * 0.5,
+        row = 0,
+        col = 0
       }
     },
     width = 40,
