@@ -41,7 +41,6 @@ end, { desc = "Close all unsaved buffers" })
 
 map("n", "<leader>ii", "<cmd>:OrganizeImports<CR>", { desc = "Organize Imports" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("n", "<leader>ll", "<cmd>:TroubleToggle<CR>", { desc = "open trouble" })
 map("n", "<leader>ft", "<cmd>:TodoTelescope<CR>", { desc = "Find TODO" })
 map({ "n", "i" }, "<C-n>", "<cmd>:tabnew<CR>", { desc = "new tab" })
 map({ "n", "i" }, "<C-1>", "<cmd>: tabn 1 <CR>", { desc = "tab 1" })
