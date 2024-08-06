@@ -1,11 +1,8 @@
-local gheight = vim.api.nvim_list_uis()[1].height
--- local gwidth = vim.api.nvim_list_uis()[1].width
-local width = 35
-local height = gheight - 5
-
 local options = {
   filters = {
     dotfiles = false,
+    git_clean = false,
+    no_buffer = false,
   },
   disable_netrw = true,
   hijack_netrw = true,
