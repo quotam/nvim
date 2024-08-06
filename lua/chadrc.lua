@@ -5,13 +5,14 @@
 local M = {}
 
 M.ui = {
-  theme = "dark_horizon",
-  theme_toggle = { "dark_horizon", "dark_horizon" },
+  theme = "tokyodark",
+  theme_toggle = { "tokyodark", "tokyonight" },
   transparency = false,
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
+
   statusline = {
     theme = "vscode",
   },
@@ -21,7 +22,7 @@ M.ui = {
     lspkind_text = true,
   },
 
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = { style = "bordered" }, -- borderless / bordered
 }
 
 return M

@@ -7,9 +7,7 @@ local map = vim.keymap.set
 -- ["<leader>s"] = { "<cmd>:set syntax=on<CR>", "Set syntax for ru. " },
 -- ["<leader>rr"] = { "<cmd>:call VrcQuery()<CR>", "VRC" },
 
-map({ "n" }, "ca", function()
-  require("actions-preview").code_actions()
-end, { desc = "code actions" })
+map({ "n" }, "ca", vim.lsp.buf.code_action, { desc = "code actions" })
 
 map({ "n", "t", "i" }, "<C-]>", function()
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0.5 }

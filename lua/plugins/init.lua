@@ -14,6 +14,11 @@ return {
     end,
   },
   {
+    'stevearc/dressing.nvim',
+    event = "VeryLazy",
+    opts = {}
+  },
+  {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
@@ -79,10 +84,19 @@ return {
       require("todo-comments").setup()
     end,
   }, -- To make a plugin not be loaded
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   lazy = false,
-  -- },
+  {
+    'Exafunction/codeium.vim',
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+      vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+      vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+        { expr = true, silent = true })
+      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+        { expr = true, silent = true })
+      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+    end,
+    lazy = false,
+  },
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
@@ -107,43 +121,6 @@ return {
       vim.g.lazygit_use_custom_config_file_path = 0 -- config file path is evaluated if this value is 1
       -- OR
       vim.g.lazygit_config_file_path = {}
-    end,
-    lazy = false,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tsx",
-        "c",
-        "markdown",
-        "markdown_inline",
-        "prisma",
-        "go",
-      },
-    },
-  },
-  {
-    "aznhe21/actions-preview.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("actions-preview").setup {
-        telescope = {
-          sorting_strategy = "ascending",
-          layout_strategy = "vertical",
-          layout_config = {
-            width = 0.4,
-            height = 0.4,
-            prompt_position = "top",
-          },
-        },
-      }
     end,
     lazy = false,
   },
