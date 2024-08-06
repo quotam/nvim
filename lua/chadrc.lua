@@ -7,11 +7,13 @@ local M = {}
 M.ui = {
   theme = "tokyodark",
   theme_toggle = { "tokyodark", "tokyonight" },
-  transparency = false,
+  transparency = true,
+
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
+
 
   statusline = {
     theme = "vscode",
