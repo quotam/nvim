@@ -17,20 +17,10 @@ local options = {
     update_root = false,
   },
   view = {
-    -- adaptive_size = false,
-    -- side = "left",
-    float = {
-      enable = false,
-      open_win_config = {
-        relative = "editor",
-        width = width,
-        height = height,
-        row = 0,
-        col = 0
-      }
-    },
-    width = 40,
-    -- preserve_window_proportions = true,
+    adaptive_size = true,
+    side = "left",
+    width = 30,
+    preserve_window_proportions = true,
   },
   git = {
     enable = true,
@@ -41,7 +31,7 @@ local options = {
   },
   actions = {
     open_file = {
-      resize_window = true,
+      quit_on_open = true,
     },
   },
   renderer = {
