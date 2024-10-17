@@ -14,15 +14,47 @@ return {
     end,
   },
   {
-    'stevearc/dressing.nvim',
+    "rest-nvim/rest.nvim",
     event = "VeryLazy",
-    opts = {}
+    config = function()
+      require("rest-nvim").setup(require "configs.rest")
+    end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup()
+      require("better_escape").setup {
+        timeout = vim.o.timeoutlen,
+        mappings = {
+          i = {
+            j = {
+              j = "<Esc>",
+            },
+          },
+          c = {
+            j = {
+              j = "<Esc>",
+            },
+          },
+          -- t = {
+          --   j = {
+          --     j = "<C-\\><C-N>",
+          --   },
+          -- },
+          s = {
+            j = {
+              j = "<Esc>",
+            },
+          },
+        },
+        default_mappings = false,
+      }
     end,
   },
   {
@@ -41,6 +73,7 @@ return {
   },
   {
     "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
     keys = {
       {
@@ -54,22 +87,22 @@ return {
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
-        "<leader>ls",
+        "<leader>cs",
         "<cmd>Trouble symbols toggle focus=false<cr>",
         desc = "Symbols (Trouble)",
       },
       {
-        "<leader>lS",
+        "<leader>cl",
         "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
         desc = "LSP Definitions / references / ... (Trouble)",
       },
       {
-        "<leader>lo",
+        "<leader>xL",
         "<cmd>Trouble loclist toggle<cr>",
         desc = "Location List (Trouble)",
       },
       {
-        "<leader>lq",
+        "<leader>lX",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
@@ -85,15 +118,21 @@ return {
     end,
   }, -- To make a plugin not be loaded
   {
-    'Exafunction/codeium.vim',
+    "Exafunction/codeium.vim",
     config = function()
       vim.g.codeium_disable_bindings = 1
-      vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end,
-        { expr = true, silent = true })
-      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
-        { expr = true, silent = true })
-      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-g>", function()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-;>", function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-,>", function()
+        return vim.fn["codeium#CycleCompletions"](-1)
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-x>", function()
+        return vim.fn["codeium#Clear"]()
+      end, { expr = true, silent = true })
     end,
     lazy = false,
   },

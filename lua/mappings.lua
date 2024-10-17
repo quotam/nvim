@@ -1,11 +1,10 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
--- ["<leader>s"] = { "<cmd>:set syntax=on<CR>", "Set syntax for ru. " },
--- ["<leader>rr"] = { "<cmd>:call VrcQuery()<CR>", "VRC" },
+map({ "n" }, "<leader>rr", "<cmd>:Rest run<CR>", { desc = "rest run current" })
+
+map("t", "jj", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 map({ "n" }, "ca", vim.lsp.buf.code_action, { desc = "code actions" })
 
@@ -40,17 +39,17 @@ end, { desc = "Close all unsaved buffers" })
 map("n", "<leader>ii", "<cmd>:OrganizeImports<CR>", { desc = "Organize Imports" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>ft", "<cmd>:TodoTelescope<CR>", { desc = "Find TODO" })
-map({ "n", "i" }, "<C-n>", "<cmd>:tabnew<CR>", { desc = "new tab" })
-map({ "n", "i" }, "<C-1>", "<cmd>: tabn 1 <CR>", { desc = "tab 1" })
-map({ "n", "i" }, "<C-2>", "<cmd>: tabn 2 <CR>", { desc = "tab 2" })
-map({ "n", "i" }, "<C-3>", "<cmd>: tabn 3 <CR>", { desc = "tab 3" })
-map({ "n", "i" }, "<C-4>", "<cmd>: tabn 4 <CR>", { desc = "tab 4" })
-map({ "n", "i" }, "<C-5>", "<cmd>: tabn 5 <CR>", { desc = "tab 5" })
-map({ "n", "i" }, "<C-6>", "<cmd>: tabn 6 <CR>", { desc = "tab 6" })
-map({ "n", "i" }, "<C-7>", "<cmd>: tabn 7 <CR>", { desc = "tab 7" })
-map({ "n", "i" }, "<C-8>", "<cmd>: tabn 8 <CR>", { desc = "tab 8" })
-map({ "i", "n" }, "<C-9>", "<cmd>: tabn 9 <CR>", { desc = "tab 9" })
-map({ "n" }, "<leader>q", "<cmd>:close<CR>", { desc = "close tab" })
-map({ "i", "n" }, "<C-0>", "<cmd>:tablast<CR>", { desc = "last tab" })
+-- map({ "n", "i" }, "<C-n>", "<cmd>:tabnew<CR>", { desc = "new tab" })
+-- map({ "n", "i" }, "<C-1>", "<cmd>: tabn 1 <CR>", { desc = "tab 1" })
+-- map({ "n", "i" }, "<C-2>", "<cmd>: tabn 2 <CR>", { desc = "tab 2" })
+-- map({ "n", "i" }, "<C-3>", "<cmd>: tabn 3 <CR>", { desc = "tab 3" })
+-- map({ "n", "i" }, "<C-4>", "<cmd>: tabn 4 <CR>", { desc = "tab 4" })
+-- map({ "n", "i" }, "<C-5>", "<cmd>: tabn 5 <CR>", { desc = "tab 5" })
+-- map({ "n", "i" }, "<C-6>", "<cmd>: tabn 6 <CR>", { desc = "tab 6" })
+-- map({ "n", "i" }, "<C-7>", "<cmd>: tabn 7 <CR>", { desc = "tab 7" })
+-- map({ "n", "i" }, "<C-8>", "<cmd>: tabn 8 <CR>", { desc = "tab 8" })
+-- map({ "i", "n" }, "<C-9>", "<cmd>: tabn 9 <CR>", { desc = "tab 9" })
+-- map({ "n" }, "<leader>q", "<cmd>:close<CR>", { desc = "close tab" })
+-- map({ "i", "n" }, "<C-0>", "<cmd>:tablast<CR>", { desc = "last tab" })
 map({ "n" }, "<leader>gg", "<cmd>:LazyGit<CR>", { desc = "open lazygit" })
 map({ "n" }, "\\", "<cmd>:vsplit <CR>", { desc = "vertical split" })

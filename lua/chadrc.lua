@@ -5,15 +5,19 @@
 local M = {}
 
 M.ui = {
-  theme = "tokyodark",
-  theme_toggle = { "tokyodark", "tokyonight" },
+  theme = "chadracula",
+  theme_toggle = { "chadracula", "tokyonight" },
   transparency = true,
+
+  tabufline = {
+    --  more opts
+    order = { "treeOffset", "buffers" },
+  },
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-
 
   statusline = {
     theme = "vscode",
