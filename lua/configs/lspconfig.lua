@@ -46,6 +46,12 @@ lspconfig.pyright.setup {
   capabilities = capabilities,
 }
 
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
+
 lspconfig.jsonls.setup {
   on_attach = on_attach,
   on_init = on_init,

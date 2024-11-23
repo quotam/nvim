@@ -11,8 +11,8 @@ local options = {
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     typescript = { "prettierd" },
-    typescriptreact = { "prettierd" },
     svelte = { "prettierd" },
+    typescriptreact = { "prettierd" },
     vue = { "prettierd" },
   },
 
