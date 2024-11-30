@@ -4,9 +4,16 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
-    opts = function()
-      return require "nvchad.configs.treesitter"
-    end,
+    opts = {
+      ensure_installed = { "lua", "http", "prisma", "luadoc", "printf", "vim", "vimdoc" },
+
+      highlight = {
+        enable = true,
+        use_languagetree = true,
+      },
+
+      indent = { enable = true },
+    },
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "syntax")
       dofile(vim.g.base46_cache .. "treesitter")
@@ -18,6 +25,13 @@ return {
     event = "VeryLazy",
     config = function()
       require("rest-nvim").setup(require "configs.rest")
+    end,
+  },
+  {
+    "aserowy/tmux.nvim",
+    event = "VeryLazy", -- Loads after Neovim is fully initialized
+    config = function()
+      require("tmux").setup()
     end,
   },
   {
