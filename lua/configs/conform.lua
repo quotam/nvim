@@ -11,14 +11,12 @@ local options = {
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     typescript = { "prettierd" },
-    svelte = { "prettierd" },
     typescriptreact = { "prettierd" },
     vue = { "prettierd" },
   },
 
   format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 1000,
     quiet = true,
     lsp_fallback = true,
   },
