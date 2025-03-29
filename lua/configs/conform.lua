@@ -3,6 +3,8 @@ local options = {
     lua = { "stylua" },
     css = { "prettierd" },
     markdown = { "prettierd" },
+    kotlin = { "ktlint" },
+    -- xml = { "xmlformatter" },
     json = { "prettierd" },
     yaml = { "prettierd" },
     http = { "prettierd" },
@@ -16,7 +18,7 @@ local options = {
   },
 
   format_on_save = {
-    timeout_ms = 1000,
+    timeout_ms = 2000,
     quiet = true,
     lsp_fallback = true,
   },

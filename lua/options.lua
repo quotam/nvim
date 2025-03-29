@@ -10,6 +10,7 @@ vim.opt.spelllang = { "ru", "en_us" }
 vim.opt.spell = true
 -- relativenumber
 --
+vim.opt.foldmethod = "manual"
 vim.opt.relativenumber = true
 --
 -- vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "tabnew" }, {

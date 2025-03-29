@@ -4,14 +4,22 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.term = {
+  float = {
+    height = 0.9,
+    width = 1,
+    col = 0,
+    row = 0,
+  },
+}
+
 M.ui = {
   theme = "chadracula",
   theme_toggle = { "chadracula", "tokyonight" },
   transparency = true,
 
   tabufline = {
-    --  more opts
-    order = { "treeOffset", "buffers" },
+    order = { "treeOffset", "buffers", "tabs" },
   },
 
   hl_override = {

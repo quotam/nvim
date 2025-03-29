@@ -1,5 +1,12 @@
 return {
   {
+    "kshenoy/vim-signature",
+    event = "VeryLazy",
+    config = function()
+      vim.g.SignatureEnableAtStartup = 1
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
@@ -130,7 +137,8 @@ return {
     config = function()
       require("todo-comments").setup()
     end,
-  }, -- To make a plugin not be loaded
+  },
+  -- require "configs.avante",
   {
     "Exafunction/codeium.vim",
     config = function()
