@@ -7,10 +7,15 @@ local M = {}
 M.term = {
   float = {
     height = 0.9,
-    width = 1,
-    col = 0,
+    width = 0.8,
+    col = 0.1,
     row = 0,
   },
+}
+
+M.base46 = {
+  transparency = true,
+  transparent_background = true,
 }
 
 M.ui = {

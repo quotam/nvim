@@ -4,8 +4,6 @@ local map = vim.keymap.set
 
 map({ "n" }, "<leader>rr", "<cmd>:Rest run<CR>", { desc = "rest run current" })
 
-map("t", "<leader>jj", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
-
 map({ "n" }, "ca", vim.lsp.buf.code_action, { desc = "code actions" })
 
 map({ "n", "t", "i" }, "<C-]>", function()
