@@ -6,10 +6,10 @@ local M = {}
 
 M.term = {
   float = {
-    height = 0.9,
+    height = 0.8,
     width = 0.8,
     col = 0.1,
-    row = 0,
+    row = 0.05,
   },
 }
 
