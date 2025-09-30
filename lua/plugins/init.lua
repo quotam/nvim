@@ -1,4 +1,5 @@
 return {
+  import = "nvchad.blink.lazyspec",
   {
     "kshenoy/vim-signature",
     event = "VeryLazy",
@@ -65,7 +66,7 @@ return {
           },
           t = {
             j = {
-              j = false,
+              j = "<C-\\><C-n>",
             },
           },
           s = {
@@ -139,25 +140,6 @@ return {
     end,
   },
   -- require "configs.avante",
-  {
-    "Exafunction/codeium.vim",
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-      vim.keymap.set("i", "<C-g>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-;>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-,>", function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true, silent = true })
-    end,
-    lazy = false,
-  },
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
