@@ -92,6 +92,16 @@ vim.lsp.config("emmet_ls", {
   },
 })
 
-local servers =
-  { "html", "cssls", "ts_ls", "emmet_ls", "jsonls", "svelte", "pyright", "tailwindcss", "yamlls", "prismals" }
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "emmet_ls",
+  "jsonls",
+  "svelte",
+  "pyright",
+  "tailwindcss",
+  "yamlls",
+  "prismals",
+}
 vim.lsp.enable(servers)

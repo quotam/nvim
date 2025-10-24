@@ -11,11 +11,37 @@ map({ "n", "t", "i" }, "<C-]>", function()
 end, { desc = "toggle vertical terminal" })
 
 map({ "n", "t", "i" }, "<C-\\>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.3 }
-end, { desc = "toggle horizontal terminal" })
+  local current_tab = vim.api.nvim_get_current_tabpage()
+  local win_ids = vim.api.nvim_tabpage_list_wins(current_tab)
+
+  local max_width = 0
+  local target_win = nil
+
+  for _, win in ipairs(win_ids) do
+    local width = vim.api.nvim_win_get_width(win)
+    if width > max_width then
+      max_width = width
+      target_win = win
+    end
+  end
+
+  if target_win then
+    vim.api.nvim_set_current_win(target_win)
+  end
+
+  require("nvchad.term").toggle {
+    pos = "sp", -- горизонтальное разделение
+    id = "htoggleTerm",
+    size = 0.3,
+  }
+end, { desc = "toggle horizontal terminal in the widest buffer" })
+
+map({ "n", "t", "i" }, "<A-u>", function()
+  require("nvchad.term").toggle { pos = "float", id = "ftoggleTerm0" }
+end, { desc = "toggle floating terminal" })
 
 map({ "n", "t", "i" }, "<A-i>", function()
-  require("nvchad.term").toggle { pos = "float", id = "ftoggleTerm" }
+  require("nvchad.term").toggle { pos = "float", id = "ftoggleTerm1" }
 end, { desc = "toggle floating terminal" })
 
 vim.keymap.set("i", "<C-g>", function()
