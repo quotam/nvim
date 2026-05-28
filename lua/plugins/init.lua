@@ -9,24 +9,12 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
     opts = {
-      ensure_installed = { "lua", "http", "prisma", "luadoc", "printf", "vim", "vimdoc" },
-
+      ensure_installed = { "lua", "http", "prisma", "luadoc", "printf", "vim", "vimdoc", "svelte", "typescript" },
       highlight = {
         enable = true,
-        use_languagetree = true,
       },
-
-      indent = { enable = true },
     },
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      dofile(vim.g.base46_cache .. "treesitter")
-      require("nvim-treesitter.configs").setup(opts)
-    end,
   },
   {
     "rest-nvim/rest.nvim",
@@ -140,13 +128,6 @@ return {
     end,
   },
   -- require "configs.avante",
-  {
-    "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-ts-autotag").setup {}
-    end,
-  },
   {
     "kdheepak/lazygit.nvim",
     requires = {

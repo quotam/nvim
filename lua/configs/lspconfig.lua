@@ -2,13 +2,23 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
--- 1. Define the configuration
+require("nvchad.configs.lspconfig").defaults()
+
+-- Rust
+vim.lsp.config("rust_analyzer", {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+})
+
+-- TypeScript
 vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
 })
--- Create a custom user command for organizing imports
+
+-- Пользовательская команда для organise imports (оставьте как есть)
 vim.api.nvim_create_user_command("OrganizeImports", function()
   local params = {
     command = "_typescript.organizeImports",
@@ -33,7 +43,8 @@ vim.lsp.config("prismals", {
 
 -- TailwindCSS
 vim.lsp.config("tailwindcss", {
-  on_attach = on_attach, -- Consider adding on_attach and capabilities for consistency
+  on_attach = on_attach,
+  on_init = on_init, -- добавлено
   capabilities = capabilities,
   performance = {
     trigger_debounce_time = 500,
@@ -96,6 +107,7 @@ local servers = {
   "html",
   "cssls",
   "ts_ls",
+  "rust_analyzer",
   "emmet_ls",
   "jsonls",
   "svelte",
@@ -104,4 +116,5 @@ local servers = {
   "yamlls",
   "prismals",
 }
+
 vim.lsp.enable(servers)

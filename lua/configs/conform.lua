@@ -5,6 +5,7 @@ local options = {
     markdown = { "prettierd" },
     kotlin = { "ktlint" },
     -- xml = { "xmlformatter" },
+    rust = { "rustfmt" },
     json = { "prettierd" },
     yaml = { "prettierd" },
     http = { "prettierd" },
@@ -15,6 +16,11 @@ local options = {
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
     vue = { "prettierd" },
+  },
+
+  default_format_opts = {
+    lsp_format = "fallback",
+    timeout_ms = 2000,
   },
 
   format_on_save = {

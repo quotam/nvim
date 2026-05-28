@@ -19,7 +19,7 @@ M.base46 = {
 }
 
 M.ui = {
-  theme = "chadracula",
+  theme = "tokyonight",
   theme_toggle = { "chadracula", "tokyonight" },
   transparency = true,
 
